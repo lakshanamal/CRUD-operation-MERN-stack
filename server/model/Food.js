@@ -1,16 +1,16 @@
-const mongoose=requre('mongoose');
+const mongoose=require('mongoose');
 
-const FoodSchema= new mangoose.Schema({
-    foodName={
-        type:String ,
+const FoodSchema=mongoose.Schema({
+    foodName:{
+        type:String,
         required:true,
     },
     daysSinceIAte:{
         type:Number,
         required:true
-    }
-});
+    },
+})
 
-const Food=mongoose.model("FoodDate",FoodSchema);
+const Food=mongoose.model('Foods',FoodSchema)
 
 module.exports=Food;
