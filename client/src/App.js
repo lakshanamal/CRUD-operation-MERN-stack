@@ -10,7 +10,7 @@ function App() {
 
   useEffect(() => {
     Axios.get("http://localhost:3001").then((res) => setFoodList(res.data));
-  }, []);
+  });
   const addToDo = () => {
     Axios.post("http://localhost:3001/add", { foodName: foodName, days: days });
     setFoodName("");
