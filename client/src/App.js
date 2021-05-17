@@ -22,6 +22,7 @@ function App() {
   }
 
   const deleteFood=(id)=>{
+    console.log(id)
     Axios.delete(`http://localhost:3001/delete/${id}`);
   }
 

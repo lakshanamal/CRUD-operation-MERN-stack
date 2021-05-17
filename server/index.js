@@ -31,6 +31,25 @@ app.get('/',(req,res)=>{
        
     FoodModel.find().then((result)=>res.json(result)).catch(err=>res.status(400).json('Error :'+err))
     
+});
+
+app.put('/update', (req,res)=>{
+    const id=req.body.id;
+    const newFoodName=req.body.foodName;
+     FoodModel.findById(id,(err,result)=>{
+        result.foodName=newFoodName;
+        result.save();
+        res.send("Update");
+    });
+});
+
+app.delete('/delete/:id',(req,res)=>{
+    const id=req.params.id;
+    console.log(req.params);
+    FoodModel.findByIdAndDelete(id,(err,result)=>{
+        res.send("elemetn deleted");
+    }
+        )
 })
 
 app.listen(3001,()=>
